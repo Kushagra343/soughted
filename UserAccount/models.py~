@@ -1,0 +1,26 @@
+from django.db import models
+
+class UserModel(models.Model):
+	model_username = models.TextField()
+	model_password = models.TextField()	
+        model_activation_key=models.IntegerField() 
+	def __unicode__(self):
+ 		return self.model_username
+	class Meta:
+        	db_table = 'usermodel'
+        	verbose_name = 'UserModel'
+       	 	verbose_name_plural = 'UserModels'
+
+
+class Time(models.Model):
+    level_0 = models.DateTimeField(max_length=255,null=True)	
+    level_1 = models.DateTimeField(max_length=255,null=True)
+    level_2 = models.DateTimeField(max_length=255,null=True)
+    level_3 = models.DateTimeField(max_length=255,null=True)
+    def __str__(self):
+        return str("Due Time")
+    class Meta:
+    	    db_table = 'time1'
+    	    verbose_name = 'Time'
+    	    verbose_name_plural = 'Times'
+

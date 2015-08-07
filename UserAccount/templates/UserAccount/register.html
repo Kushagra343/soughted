@@ -1,0 +1,104 @@
+
+
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+      
+
+
+
+
+<div class="wrap">
+<!-- strat-contact-form --> 
+<div class="contact-form">
+
+
+     {% if messages %}
+                        {% for message in messages %}
+                           <div class="alert alert-info alert-dismissable">
+                              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                              <h6>{{message|safe}}</h6>
+                           </div>
+                        {% endfor %}
+                     {% endif %}
+<!-- start-form -->
+  <form class="contact_form" action="/user/signup/" method="post" name="contact_form">
+{% csrf_token %}      
+    <h1>Sign Up</h1><br/>
+      <ul>
+          <li>
+              <input type="email" id="name" name="username"class="textbox1 form-control" placeholder="Example@gmail.com" required />
+               <p></p>
+          </li>
+           <li>
+              <input type="password" id="pass1" name="password" class="textbox2 form-control" placeholder="password" pattern=".{6,}" title="Minimum 6 letters or numbers."  required>
+              <p></p>
+          </li>
+      <li>
+              <input type="password" id="pass2" name="confirm_new_password" class="textbox2 form-control" placeholder="Confirm password" onfocus="validatePass(document.getElementById('pass1'), this);" oninput="validatePass(document.getElementById('pass1'), this);" required>
+              <p></p>
+          </li>
+         </ul>
+          <input type="submit" name="Sign In" value="Sign Up"/>
+      <div class="clear"></div> 
+    
+    <div class="clear"></div> 
+  </form>
+<!-- end-form -->
+<!-- start-account -->
+<div style="padding-top:35px;" class="account">
+    <h5><a  href="/user/login">Already have an account? Login!</a></h5>
+    <div class="span"><a href="/social/app"><i>Log In with Facebook</i><div class="clear"></div></a></div>  
+    <div class="span2"><a href="/social/g/"><i>Log In with Google+</i><div class="clear"></div></a></div>
+</div>  
+<!-- end-account -->
+<div class="clear"></div> 
+</div>
+<!-- end-contact-form -->
+  </div>
+</div>
+<script>
+function validatePass(pass1, pass2) {
+    if (pass1.value != pass2.value || pass1.value == '' || pass2.value == '') {
+        pass2.setCustomValidity('Password do not match');
+    } else {
+        pass2.setCustomValidity('');
+    }
+}
+</script>
+   <script src="{{STATIC_URL}}js/jquery-1.10.2.min.js"></script>
+<script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+<script>
+
+$(function () {
+ $('[data-toggle="tooltip"]').tooltip()
+})
+
+</script>
+
+   </body>
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

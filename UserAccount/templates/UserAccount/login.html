@@ -1,0 +1,81 @@
+
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+        {% if user.is_authenticated %}
+    <li><a href="/user/logout">LOGOUT</a></li>
+                    {% endif %}
+
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+      
+
+<div class="wrap">
+  
+<div class="contact-form">
+{% if messages %}
+                        {% for message in messages %}
+                           <div align="center" class="alert alert-info alert-dismissable">
+                              <h5>{{message|safe}}</h5>
+                           </div>
+                        {% endfor %}
+                     {% endif %}
+
+  <form class="contact_form" action="/user/login/" method="post" name="contact_form">
+  {% csrf_token %}
+  <h1>Sign In Into Your Account</h1>
+      <ul>
+          <li>
+              <input type="email" id="name" name="username" type="username" class="textbox1 form-control" name="email" placeholder="Example@gmail.com" required />
+               <p></p>
+          </li>
+          <li>
+              <input type="password" name="password" type="password" id="pass" class="textbox2 form-control" placeholder="password" required />
+              <p></p>
+          </li>
+         </ul>
+          <input type="submit" name="Sign In" value="Sign In"/>
+      <div class="clear"></div> 
+    <div class="forgot">
+      <a href="/user/password_forget">forgot password?</a>
+    </div>  
+    <div class="clear"></div> 
+  </form>
+<div class="account">
+  <h5><a  href="/user/signup">Don't have an account? Sign Up!</a></h5>
+    <div class="span"><a href="/social/app"><i>Log In with Facebook</i><div class="clear"></div></a></div>  
+    <div class="span2"><a href="/social/g/"><i>Log In with Google+</i><div class="clear"></div></a></div>
+</div>  
+
+<div class="clear"></div> 
+</div>
+
+   <script src="{{STATIC_URL}}js/jquery-1.10.2.min.js"></script>
+<script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+<script>
+
+$(function () {
+ $('[data-toggle="tooltip"]').tooltip()
+})
+
+</script>
+
+   </body>
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
